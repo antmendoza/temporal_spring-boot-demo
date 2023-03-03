@@ -19,9 +19,17 @@ spring:
     propagation:
       type: W3C
   temporal:
+    namespace: antonio-perez.temporal-dev
     connection:
-      target: 127.0.0.1:7233
-      target.namespace: default
+      target: antonio-perez.temporal-dev.tmprl.cloud:7233 # you can specify a host:port here for a remote connection
+      # enable-https: true
+      # namespace: default # you can specify a custom namespace that you are using
+
+      mtls:
+        key-file: /Users/antmendoza/dev/temporal/certificates/namespace-antonio-perez/antonio-perez.key
+        cert-chain-file: /Users/antmendoza/dev/temporal/certificates/namespace-antonio-perez/antonio-perez.pem
+
+
     workers:
       - task-queue: DemoTaskQueue
         capacity:
@@ -30,8 +38,18 @@ spring:
         rate-limits:
           max-worker-activities-per-second: 0
           max-task-queue-activities-per-second: 0
+        workflow-classes:
+          - com.temporal.demos.temporalspringbootdemo.workflows.DemoWorkflowImpl
+        activity-beans:
+          - demoActivitiesImpl
+
+
     workflow-cache:
       max-instances: 10
       max-threads: 10
     workersAutoDiscovery:
       packages: com.temporal
+
+
+
+

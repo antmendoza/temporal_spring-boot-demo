@@ -4,8 +4,8 @@ import io.cloudevents.CloudEvent;
 import io.temporal.spring.boot.ActivityImpl;
 import org.springframework.stereotype.Component;
 
-@Component
-@ActivityImpl(taskQueues = "DemoTaskQueue")
+@Component (value = "demoActivitiesImpl")
+@ActivityImpl//(taskQueues = "DemoTaskQueue")
 public class DemoActivitiesImpl implements DemoActivities {
     @Override
     public void before(CloudEvent cloudEvent) {

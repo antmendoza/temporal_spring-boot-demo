@@ -17,7 +17,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-@WorkflowImpl(taskQueues = "DemoTaskQueue")
+@WorkflowImpl//(taskQueues = "DemoTaskQueue")
 public class DemoWorkflowImpl implements DemoWorkflow {
 
     private List<CloudEvent> eventList = new ArrayList<>();
