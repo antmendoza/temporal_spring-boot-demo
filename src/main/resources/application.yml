@@ -19,9 +19,12 @@ spring:
     propagation:
       type: W3C
   temporal:
+    namespace: antonio.a2dd6
     connection:
-      target: 127.0.0.1:7233
-      target.namespace: default
+      target: antonio.a2dd6.tmprl.cloud:7233
+      mtls:
+        key-file: /Users/antmendoza/dev/temporal/certificates/namespace-antonio-perez/antonio-perez.key
+        cert-chain-file: /Users/antmendoza/dev/temporal/certificates/namespace-antonio-perez/antonio-perez.pem
     workers:
       - task-queue: DemoTaskQueue
         capacity:
@@ -35,3 +38,5 @@ spring:
       max-threads: 10
     workersAutoDiscovery:
       packages: com.temporal
+
+

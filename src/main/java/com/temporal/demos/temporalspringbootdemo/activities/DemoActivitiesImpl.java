@@ -1,6 +1,5 @@
 package com.temporal.demos.temporalspringbootdemo.activities;
 
-import io.cloudevents.CloudEvent;
 import io.temporal.spring.boot.ActivityImpl;
 import org.springframework.stereotype.Component;
 
@@ -8,12 +7,12 @@ import org.springframework.stereotype.Component;
 @ActivityImpl(taskQueues = "DemoTaskQueue")
 public class DemoActivitiesImpl implements DemoActivities {
     @Override
-    public void before(CloudEvent cloudEvent) {
+    public void before(String cloudEvent) {
         // todo
     }
 
     @Override
-    public void after(CloudEvent cloudEvent) {
+    public void after(String cloudEvent) {
         // todo
     }
 }
